@@ -4,7 +4,8 @@ import crypto from "crypto";
 import BigNumber from "bignumber.js";
 import base64url from "base64url";
 import { currencies } from "./index";
-import { ArweaveSigner } from "arbundles/build/signing";
+import { ArweaveSigner } from "arbundles/src/signing";
+
 
 
 
@@ -85,5 +86,5 @@ export async function arweaveCreateTx(amount, to, fee) {
 }
 
 export function arweaveGetPublicKey() {
-    return currencies["arweave"].account.key.n
+    return base64url.toBuffer(currencies["arweave"].account.key.n);
 }
